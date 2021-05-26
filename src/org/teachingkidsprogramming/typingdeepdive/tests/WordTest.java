@@ -63,6 +63,7 @@ public class WordTest
   public void willImportWordsAccordingToType() {
     checkImportedWordsMatchType(Words::importEnglishWords, WordType.ENGLISH);
     checkImportedWordsMatchType(Words::importFinnishWords, WordType.FINNISH);
+    checkImportedWordsMatchType(Words::importHotkeys, WordType.HOTKEYS);
   }
 
   private void checkImportedWordsMatchType(Supplier<HashMap<Integer, ArrayList<String>>> wordSupplier, WordType wordType) {

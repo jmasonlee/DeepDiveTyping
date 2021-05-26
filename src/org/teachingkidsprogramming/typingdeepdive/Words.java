@@ -20,7 +20,17 @@ public class Words
   private static HashMap<Integer, ArrayList<String>> words;
 
   public static HashMap<Integer, ArrayList<String>> getWords(WordType type) {
-    return type.equals(WordType.FINNISH) ? importFinnishWords() : importEnglishWords();
+    switch (type) {
+      case FINNISH -> {
+        return importFinnishWords();
+      }
+      case HOTKEYS -> {
+        return importHotkeys();
+      }
+      default -> {
+        return importEnglishWords();
+      }
+    }
   }
 
   public String next(int min, int max)
@@ -74,6 +84,11 @@ public static HashMap<Integer, ArrayList<String>> importEnglishWords() throws Er
 	importWords(words2, "words/punctuation.txt");
 	return words2;
 }
+  public static HashMap<Integer, ArrayList<String>> importHotkeys() {
+    HashMap<Integer, ArrayList<String>> words2 = new HashMap<Integer, ArrayList<String>>();
+    importWords(words2, "words/hotkeys.txt");
+    return words2;
+  }
   public static void importWords(HashMap<Integer,ArrayList<String>> words2, String filename) throws Error
   {
     InputStream resourceAsStream = Words.class.getResourceAsStream(filename);
@@ -95,4 +110,5 @@ public static HashMap<Integer, ArrayList<String>> importEnglishWords() throws Er
       ObjectUtils.throwAsError(e);
     }
   }
+
 }
