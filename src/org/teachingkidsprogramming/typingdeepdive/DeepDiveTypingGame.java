@@ -159,7 +159,11 @@ public class DeepDiveTypingGame implements KeyListener, PlayStateListener
   }
   public void writeAnalytics()
   {
-    FileUtils.writeFile(new File(".analytics.json"), "game:" + analytics);
+    try {
+      FileUtils.writeFile(new File(".analytics.json"), "game:" + analytics);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
   public void stopTimer()
   {
