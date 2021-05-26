@@ -1,7 +1,5 @@
 package org.teachingkidsprogramming.typingdeepdive.tests;
 
-import static org.junit.Assert.assertEquals;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -16,6 +14,8 @@ import org.teachingkidsprogramming.typingdeepdive.SharkBatch;
 import org.teachingkidsprogramming.typingdeepdive.Words;
 
 import com.spun.util.io.FileUtils;
+
+import static org.junit.Assert.*;
 
 public class WordTest
 {
@@ -55,5 +55,14 @@ public class WordTest
       SharkBatch.getUniqueWord(letters);
     }
     assertEquals(26, letters.size());
+  }
+
+  @Test
+  public void willImportWordsAccordingToType() {
+    HashMap<Integer, ArrayList<String>> finnishWords = Words.importFinnishWords();
+
+    for (Integer key:finnishWords.keySet()) {
+      assertTrue(finnishWords.get(key).equals(Words.getWords(WordType.FINNISH).get(key)));
+    }
   }
 }

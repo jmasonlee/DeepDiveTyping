@@ -13,10 +13,16 @@ import org.lambda.query.Query;
 import com.spun.util.NumberUtils;
 import com.spun.util.ObjectUtils;
 import com.spun.util.StringUtils;
+import org.teachingkidsprogramming.typingdeepdive.tests.WordType;
 
 public class Words
 {
   private static HashMap<Integer, ArrayList<String>> words;
+
+  public static HashMap<Integer, ArrayList<String>> getWords(WordType type) {
+    return importFinnishWords();
+  }
+
   public String next(int min, int max)
   {
     HashMap<Integer, ArrayList<String>> words = getWords();
@@ -53,10 +59,10 @@ public class Words
     return words;
   }
 private static HashMap<Integer, ArrayList<String>> importWords() throws Error {
-	boolean finnish = true;
+	boolean finnish = false;
 	return finnish ? importFinnishWords() :  importEnglishWords();
 }
-private static HashMap<Integer, ArrayList<String>> importFinnishWords() throws Error {
+public static HashMap<Integer, ArrayList<String>> importFinnishWords() throws Error {
 	HashMap<Integer, ArrayList<String>> words2 = new HashMap<Integer, ArrayList<String>>();
       importWords(words2, "words/words_suomi.txt");
 	return words2;
