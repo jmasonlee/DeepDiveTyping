@@ -60,6 +60,11 @@ public class WordTest
   @Test
   public void willImportWordsAccordingToType() {
     HashMap<Integer, ArrayList<String>> finnishWords = Words.importFinnishWords();
+    HashMap<Integer, ArrayList<String>> englishWords = Words.importEnglishWords();
+
+    for (Integer key:englishWords.keySet()) {
+      assertTrue(englishWords.get(key).equals(Words.getWords(WordType.ENGLISH).get(key)));
+    }
 
     for (Integer key:finnishWords.keySet()) {
       assertTrue(finnishWords.get(key).equals(Words.getWords(WordType.FINNISH).get(key)));

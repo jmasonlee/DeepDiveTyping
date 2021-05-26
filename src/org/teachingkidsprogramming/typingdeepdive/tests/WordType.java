@@ -1,5 +1,5 @@
 package org.teachingkidsprogramming.typingdeepdive.tests;
 
 public enum WordType {
-    FINNISH
+    ENGLISH, FINNISH
 }

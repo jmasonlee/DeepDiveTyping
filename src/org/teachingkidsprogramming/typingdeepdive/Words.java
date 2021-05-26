@@ -20,7 +20,7 @@ public class Words
   private static HashMap<Integer, ArrayList<String>> words;
 
   public static HashMap<Integer, ArrayList<String>> getWords(WordType type) {
-    return importFinnishWords();
+    return type.equals(WordType.FINNISH) ? importFinnishWords() : importEnglishWords();
   }
 
   public String next(int min, int max)
@@ -67,7 +67,7 @@ public static HashMap<Integer, ArrayList<String>> importFinnishWords() throws Er
       importWords(words2, "words/words_suomi.txt");
 	return words2;
 }
-private static HashMap<Integer, ArrayList<String>> importEnglishWords() throws Error {
+public static HashMap<Integer, ArrayList<String>> importEnglishWords() throws Error {
 	HashMap<Integer, ArrayList<String>> words2 = new HashMap<Integer, ArrayList<String>>();
 	importWords(words2, "words/words.txt");
 	importWords(words2, "words/fun_words.txt");
