@@ -69,8 +69,8 @@ public class Words
     return words;
   }
 private static HashMap<Integer, ArrayList<String>> importWords() throws Error {
-	boolean finnish = false;
-	return finnish ? importFinnishWords() :  importEnglishWords();
+	WordType type = WordType.HOTKEYS;
+	return getWords(type);
 }
 public static HashMap<Integer, ArrayList<String>> importFinnishWords() throws Error {
 	HashMap<Integer, ArrayList<String>> words2 = new HashMap<Integer, ArrayList<String>>();
