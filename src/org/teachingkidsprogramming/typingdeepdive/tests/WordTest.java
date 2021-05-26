@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 import org.approvaltests.Approvals;
 import org.junit.Test;
@@ -59,16 +61,15 @@ public class WordTest
 
   @Test
   public void willImportWordsAccordingToType() {
-    HashMap<Integer, ArrayList<String>> englishWords = Words.importEnglishWords();
+    checkImportedWordsMatchType(Words::importEnglishWords, WordType.ENGLISH);
+    checkImportedWordsMatchType(Words::importFinnishWords, WordType.FINNISH);
+  }
 
-    for (Integer key:englishWords.keySet()) {
-      assertTrue(englishWords.get(key).equals(Words.getWords(WordType.ENGLISH).get(key)));
-    }
+  private void checkImportedWordsMatchType(Supplier<HashMap<Integer, ArrayList<String>>> wordSupplier, WordType wordType) {
+    HashMap<Integer, ArrayList<String>> words = wordSupplier.get();
 
-    HashMap<Integer, ArrayList<String>> finnishWords = Words.importFinnishWords();
-
-    for (Integer key:finnishWords.keySet()) {
-      assertTrue(finnishWords.get(key).equals(Words.getWords(WordType.FINNISH).get(key)));
+    for (Integer key : words.keySet()) {
+      assertTrue(words.get(key).equals(Words.getWords(wordType).get(key)));
     }
   }
 }
