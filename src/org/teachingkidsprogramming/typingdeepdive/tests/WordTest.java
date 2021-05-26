@@ -49,16 +49,16 @@ public class WordTest
     Approvals.verifyAll("", words.get(2));
   }
 
-//  @Test
-//  public void testUnique() throws Exception
-//  {
-//    HashSet<Character> letters = new HashSet<Character>();
-//    for (int i = 1; i <= 26; i++)
-//    {
-//      SharkBatch.getUniqueWord(letters);
-//    }
-//    assertEquals(26, letters.size());
-//  }
+  //@Test
+  public void testUnique() throws Exception
+  {
+    HashSet<Character> letters = new HashSet<Character>();
+    for (int i = 1; i <= 26; i++)
+    {
+      SharkBatch.getUniqueWord(letters);
+    }
+    assertEquals(26, letters.size());
+  }
 
   @Test
   public void willImportWordsAccordingToType() {

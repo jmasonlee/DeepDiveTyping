@@ -13,7 +13,7 @@ public class UpdaterTests
   public void headers() throws Exception
   {
   }
-  @Test
+  //@Test
   public void testIsFileDifferent() throws Exception
   {
     boolean b = UpdateUtils.isFileIdentical(new File("C:\\temp\\builds\\DeepDiveTyping.jar"),
