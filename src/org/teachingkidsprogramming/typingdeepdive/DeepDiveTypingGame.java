@@ -14,9 +14,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DeepDiveTypingGame implements KeyListener, PlayStateListener {
-    private final KeyProcessor keyProcessor = new KeyProcessor(this);
-    public JPanel view = new DeepDiveTypingView(this);
+public class DeepDiveTypingGame implements PlayStateListener {
+    public JPanel view = new DeepDiveTypingView(this, new KeyProcessor(this));
     public ArrayList<Actor> actors = new ArrayList<Actor>();
     public Score score;
     public Timer timer;
@@ -74,23 +73,6 @@ public class DeepDiveTypingGame implements KeyListener, PlayStateListener {
                 }
             }
         }
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        keyProcessor.keyTyped(e);
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        //do nothing
-        keyProcessor.keyPressed(e);
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        //do nothing
-        keyProcessor.keyReleased(e);
     }
 
     @Override

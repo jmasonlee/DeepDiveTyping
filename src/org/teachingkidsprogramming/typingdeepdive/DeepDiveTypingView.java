@@ -15,12 +15,12 @@ public class DeepDiveTypingView extends JPanel
 {
   private static Image       image;
   private DeepDiveTypingGame deepDive;
-  public DeepDiveTypingView(DeepDiveTypingGame deepDive)
+  public DeepDiveTypingView(DeepDiveTypingGame deepDive, KeyProcessor keyProcessor)
   {
     this.deepDive = deepDive;
     this.setPreferredSize(new Dimension(640, 480));
     this.setBackground(Color.BLUE);
-    this.addKeyListener(deepDive);
+    this.addKeyListener(keyProcessor);
     this.setFocusable(true);
   }
   @Override
