@@ -9,5 +9,6 @@ class KeyProcessorTest {
     @org.junit.jupiter.api.Test
     void createsCorrectKeyProcessor() {
         assertEquals(KeyProcessor.createKeyProcessor(new DeepDiveTypingGame(WordType.ENGLISH)).getClass(), WordProcessor.class);
+        assertEquals(KeyProcessor.createKeyProcessor(new DeepDiveTypingGame(WordType.FINNISH)).getClass(), WordProcessor.class);
     }
 }
