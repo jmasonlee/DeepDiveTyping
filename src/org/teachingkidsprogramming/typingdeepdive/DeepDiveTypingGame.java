@@ -8,14 +8,12 @@ import org.teachingkidsprogramming.typingdeepdive.analytics.GameAnalytics;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 public class DeepDiveTypingGame implements PlayStateListener {
-    public JPanel view = new DeepDiveTypingView(this, new KeyProcessor(this));
+    public JPanel view = new DeepDiveTypingView(this, KeyProcessor.createKeyProcessor(this));
     public ArrayList<Actor> actors = new ArrayList<Actor>();
     public Score score;
     public Timer timer;

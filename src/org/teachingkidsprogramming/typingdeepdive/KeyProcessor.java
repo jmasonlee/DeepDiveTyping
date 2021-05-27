@@ -6,8 +6,12 @@ import java.awt.event.KeyListener;
 public class KeyProcessor implements KeyListener {
     private final DeepDiveTypingGame deepDiveTypingGame;
 
-    public KeyProcessor(DeepDiveTypingGame deepDiveTypingGame) {
+    private KeyProcessor(DeepDiveTypingGame deepDiveTypingGame) {
         this.deepDiveTypingGame = deepDiveTypingGame;
+    }
+
+    public static KeyProcessor createKeyProcessor(DeepDiveTypingGame deepDiveTypingGame) {
+        return new KeyProcessor(deepDiveTypingGame);
     }
 
     @Override
