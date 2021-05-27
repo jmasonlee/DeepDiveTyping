@@ -4,6 +4,7 @@ import com.spun.util.WindowUtils;
 import com.spun.util.io.FileUtils;
 import org.teachingkidsprogramming.typingdeepdive.Shark.PlayState;
 import org.teachingkidsprogramming.typingdeepdive.analytics.GameAnalytics;
+import org.teachingkidsprogramming.typingdeepdive.tests.WordType;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,12 +14,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DeepDiveTypingGame implements PlayStateListener {
+    private final WordType type;
     public JPanel view = new DeepDiveTypingView(this, KeyProcessor.createKeyProcessor(this));
     public ArrayList<Actor> actors = new ArrayList<Actor>();
     public Score score;
     public Timer timer;
     public Actor selected;
     public GameAnalytics analytics;
+
+    public DeepDiveTypingGame(WordType type) {
+        this.type = type;
+    }
+
+    public DeepDiveTypingGame() {
+        this(WordType.ENGLISH);
+    }
 
     private static void OpenWindow(JPanel view) {
         JFrame test = new JFrame("Deep Dive Typing");
