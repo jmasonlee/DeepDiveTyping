@@ -70,7 +70,7 @@ public class DeepDiveTypingGame implements PlayStateListener {
         }
     }
 
-    public void processLetter(char letter) {
+    public void processLetter(Character letter) {
         if (selected != null) {
             selected.processLetter(letter);
             return;

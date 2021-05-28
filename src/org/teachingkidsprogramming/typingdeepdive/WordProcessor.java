@@ -1,6 +1,7 @@
 package org.teachingkidsprogramming.typingdeepdive;
 
 import java.awt.event.KeyEvent;
+import java.util.function.Consumer;
 
 public class WordProcessor extends KeyProcessor {
     DeepDiveTypingGame deepDiveTypingGame;
@@ -10,7 +11,11 @@ public class WordProcessor extends KeyProcessor {
     }
 
     public void keyTyped(KeyEvent e) {
-        deepDiveTypingGame.processLetter(e.getKeyChar());
+        keyTyped(e, deepDiveTypingGame::processLetter);
+    }
+
+    public void keyTyped(KeyEvent e, Consumer<Character> processLetter) {
+        processLetter.accept(e.getKeyChar());
     }
 
     public void keyPressed(KeyEvent e) {
