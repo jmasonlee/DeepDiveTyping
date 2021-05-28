@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 public class DeepDiveTypingGame implements PlayStateListener {
     private final WordType type;
-    public JPanel view = new DeepDiveTypingView(this, KeyProcessor.createKeyProcessor(this));
+    public JPanel view;
     public ArrayList<Actor> actors = new ArrayList<Actor>();
     public Score score;
     public Timer timer;
@@ -24,6 +24,7 @@ public class DeepDiveTypingGame implements PlayStateListener {
 
     public DeepDiveTypingGame(WordType type) {
         this.type = type;
+        this.view = new DeepDiveTypingView(this, KeyProcessor.createKeyProcessor(this));
     }
 
     public DeepDiveTypingGame() {
