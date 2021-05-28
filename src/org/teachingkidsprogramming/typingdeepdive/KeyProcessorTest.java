@@ -10,5 +10,6 @@ class KeyProcessorTest {
     void createsCorrectKeyProcessor() {
         assertEquals(KeyProcessor.createKeyProcessor(new DeepDiveTypingGame(WordType.ENGLISH)).getClass(), WordProcessor.class);
         assertEquals(KeyProcessor.createKeyProcessor(new DeepDiveTypingGame(WordType.FINNISH)).getClass(), WordProcessor.class);
+        assertEquals(KeyProcessor.createKeyProcessor(new DeepDiveTypingGame(WordType.HOTKEYS)).getClass(), HotkeyProcessor.class);
     }
 }

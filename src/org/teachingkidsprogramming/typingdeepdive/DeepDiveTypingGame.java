@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DeepDiveTypingGame implements PlayStateListener {
-    private final WordType type;
+    public final WordType type;
     public JPanel view;
     public ArrayList<Actor> actors = new ArrayList<Actor>();
     public Score score;
