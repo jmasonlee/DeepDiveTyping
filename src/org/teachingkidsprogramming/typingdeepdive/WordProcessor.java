@@ -9,17 +9,14 @@ public class WordProcessor extends KeyProcessor {
         this.deepDiveTypingGame = deepDiveTypingGame;
     }
 
-    @Override
     public void keyTyped(KeyEvent e) {
         deepDiveTypingGame.processLetter(e.getKeyChar());
     }
 
-    @Override
     public void keyPressed(KeyEvent e) {
         //do nothing
     }
 
-    @Override
     public void keyReleased(KeyEvent e) {
         //do nothing
     }
