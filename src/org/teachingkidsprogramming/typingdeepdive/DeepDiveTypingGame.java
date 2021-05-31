@@ -28,7 +28,7 @@ public class DeepDiveTypingGame implements PlayStateListener {
     }
 
     public DeepDiveTypingGame() {
-        this(WordType.ENGLISH);
+        this(WordType.HOTKEYS);
     }
 
     private static void OpenWindow(JPanel view) {
@@ -70,18 +70,18 @@ public class DeepDiveTypingGame implements PlayStateListener {
         }
     }
 
-    public void processLetter(Character letter) {
+    public boolean processLetter(Character letter) {
         if (selected != null) {
-            selected.processLetter(letter);
-            return;
+            return selected.processLetter(letter);
         }
         for (Actor shark : actors.toArray(new Actor[0])) {
             if (selected == null) {
                 if (shark.processLetter(letter)) {
-                    return;
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     @Override

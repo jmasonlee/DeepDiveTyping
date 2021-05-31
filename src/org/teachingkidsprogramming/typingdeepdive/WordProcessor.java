@@ -14,7 +14,7 @@ public class WordProcessor extends KeyProcessor {
         keyTyped(e, deepDiveTypingGame::processLetter);
     }
 
-    public void keyTyped(KeyEvent e, Consumer<Character> processLetter) {
+    public static void keyTyped(KeyEvent e, Consumer<Character> processLetter) {
         processLetter.accept(e.getKeyChar());
     }
 

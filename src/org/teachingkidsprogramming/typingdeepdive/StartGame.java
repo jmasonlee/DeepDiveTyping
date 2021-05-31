@@ -26,7 +26,7 @@ public class StartGame implements Actor
   @Override
   public boolean processLetter(char letter)
   {
-    if (letter == 's')
+    if (Character.toLowerCase(letter) == 's')
     {
       game.start();
       return true;
