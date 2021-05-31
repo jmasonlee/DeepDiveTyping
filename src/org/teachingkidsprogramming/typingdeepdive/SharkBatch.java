@@ -39,7 +39,7 @@ public class SharkBatch implements Actor
     String word;
     do
     {
-      word = words.next(2, 7);
+      word = words.next(1, 7);
     }
     while (letters.contains(word.charAt(0)));
     letters.add(word.charAt(0));
